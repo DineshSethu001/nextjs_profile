@@ -20,6 +20,19 @@ export default function Footer() {
 
   return (
     <footer className="relative overflow-hidden bg-[#171614] text-[#F2E8D8]">
+      <img
+        src="/images/footer_workspace.png"
+        alt="Developer workspace"
+        className="
+          absolute
+          inset-0
+          h-full
+          w-full
+          object-cover
+          object-center
+          opacity-5
+        "
+      />
 
       {/* Decorative glow */}
       <div className="pointer-events-none absolute -left-32 -top-32 h-72 w-72 rounded-full bg-[#C8955B]/10 blur-3xl" />
@@ -170,7 +183,9 @@ export default function Footer() {
           className="mt-20 overflow-hidden"
         >
           <h2 className="select-none font-serif text-[15vw] font-bold leading-[0.7] tracking-[-0.06em] text-white/[0.035] md:text-[12vw]">
-            DINESH
+            DINESH <span className="select-none font-serif text-[15vw] font-bold leading-[0.7] tracking-[-0.06em] text-white/[0.035] md:text-[12vw]">
+            .
+          </span> T
           </h2>
         </motion.div>
 

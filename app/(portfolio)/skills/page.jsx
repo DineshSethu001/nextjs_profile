@@ -87,19 +87,20 @@ const technologies = [
 export default function Skills() {
   return (
     <main className="min-h-screen bg-[#171614] px-6 py-32 text-[#F2E8D8] md:px-12 lg:px-20">
-
+    
       {/* =====================================
           HEADER
       ====================================== */}
 
       <section className="mx-auto max-w-7xl">
 
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-        >
+        >  
           <p className="text-xs uppercase tracking-[0.4em] text-[#C8955B]">
             03 / Skills
           </p>

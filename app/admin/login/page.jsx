@@ -13,56 +13,45 @@ export default function AdminLogin() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+async function handleSubmit(e) {
+  e.preventDefault();
 
-    setMessage("");
-    setLoading(true);
+  try {
+    const response = await fetch("/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
 
-    try {
-      const endpoint = isCreateMode
-        ? "/api/admin/create"
-        : "/api/admin/login";
+    const data = await response.json();
 
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      });
+    console.log(data);
+  } catch (error) {
+    console.error("Login error:", error);
+  }
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        setMessage(data.message || "Something went wrong");
-        return;
-      }
-
-      setMessage(data.message);
-
-      if (isCreateMode) {
-        setEmail("");
-        setPassword("");
-
-        setTimeout(() => {
-          setIsCreateMode(false);
-          setMessage("");
-        }, 1500);
-      }
-    } catch (error) {
-      console.error(error);
-      setMessage("Unable to connect to the server");
-    } finally {
-      setLoading(false);
-    }
   };
 
   return (
     <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#171614] px-4">
+      <img
+        src="/images/footer_workspace.png"
+        alt="Developer workspace"
+        className="
+          absolute
+          inset-0
+          h-full
+          w-full
+          object-cover
+          object-center
+          opacity-50
+        "
+      />
 
       {/* Home Button */}
       <Link
@@ -101,7 +90,7 @@ export default function AdminLogin() {
           overflow-hidden
           rounded-2xl
           border border-white/10
-          bg-[#171614]/90
+        
           shadow-[0_15px_50px_rgba(0,0,0,0.35)]
           backdrop-blur-xl
         ">
