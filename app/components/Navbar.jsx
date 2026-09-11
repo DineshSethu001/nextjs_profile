@@ -173,27 +173,8 @@
               <motion.div
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.96 }}
-                className="ml-3 flex gap-3"
-              >  <Link
-    href="/admin/login"
-    className="
-      flex items-center gap-2
-      rounded-full
-      border border-[#C8955B]/40
-      bg-[#C8955B]/10
-      px-4 py-2.5
-      text-xs
-      font-medium
-      tracking-wide
-      text-[#C8955B]
-      transition-all
-      hover:border-[#C8955B]/70
-      hover:bg-[#C8955B]/20
-    "
-  >
-    Admin
-    <span>↗</span>
-  </Link>
+                className="ml-3 flex gap-3">
+
                 <Link
                   href="/resume"
                   className="
@@ -351,7 +332,7 @@
 
                   {/* Mobile Resume */}
                   {/* Mobile Admin */}
-<Link
+{/* <Link
   href="/admin/login"
   onClick={() => setIsOpen(false)}
   className="
@@ -373,7 +354,7 @@
 >
   Admin Login
   <span>↗</span>
-</Link>
+</Link> */}
                   <Link
                     href="/resume"
                     onClick={() => setIsOpen(false)}

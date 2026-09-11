@@ -295,15 +295,14 @@ const handleSubmit = (e) => {
                       text-white/30
                     "
                   >
-                    Dinesh T
-                  </label>
+FullName                  </label>
 
                   <input
                     id="name"
                     name="name"
                     type="text"
                     required
-                    placeholder="John Doe"
+                    placeholder="DINESH"
                     className="
                       w-full
                       border-b
