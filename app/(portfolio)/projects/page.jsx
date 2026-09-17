@@ -1,15 +1,24 @@
 import ProjectsClient from "./projectsClient";
+import Project from "../../models/project";
+import connectDB from "../../lib/mongodb";
 
 export default async function ProjectsPage() {
-  const response = await fetch("http://localhost:3000/api/projects", {
-    cache: "no-store",
-  });
+  await connectDB();
 
-  if (!response.ok) {
-    throw new Error("Failed to fetch projects");
-  }
+  const projects = await Project.find().lean();
 
-  const projects = await response.json();
+  const serializedProjects = projects.map((project) => ({
+    _id: project._id.toString(),
+    number: project.number,
+    title: project.title,
+    category: project.category,
+    description: project.description,
+    tech: project.tech,
+    image: project.image,
+    live: project.live,
+    github: project.github,
+    featured: project.featured,
+  }));
 
-  return <ProjectsClient projects={projects} />;
+  return <ProjectsClient projects={serializedProjects} />;
 }
